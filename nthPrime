@@ -1,0 +1,49 @@
+//nth prime number calcualtion
+package com.practice
+import scala.io.StdIn._
+import scala.util.control.Breaks._
+
+object nthPrime extends App {
+  var cnt = 0
+  var lstprime =0
+  print("Enter number to get nth prime number:")
+  val num = readInt()
+  var prim=2
+  if (num <= 0) 
+    print("No Prime Number")
+  else{
+  
+  do{
+  primecheck(prim)
+  prim = prim +1
+  
+  }while (cnt<num)
+  
+    println(s"nth prime number: $lstprime")
+    
+  def primecheck(num:Int)
+  {
+    
+    breakable 
+    { 
+      if (num%2==0 && num!=2) //added check to improve the performance.
+        break
+    
+    var n =1
+    for (i <- 2 until num)
+    {
+      if (num % i ==0)
+        n = n+1
+    }   
+        if  (n ==1)
+        {
+         cnt =cnt+1
+         lstprime=num
+        }
+    }
+  }
+  
+  }
+
+
+}
