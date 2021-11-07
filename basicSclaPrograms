@@ -1,0 +1,227 @@
+/*
+1.Palindrome 
+2.+ve or -ve 
+3.Biggest of 2 numbers 
+4.Factorial
+5.Amstrong Number
+6.Sum of numbers 
+7.Prime Numbers
+8.Fibonacii
+9.Math Tables
+ * 
+ * */
+package com.excercise
+import scala.io.StdIn._
+import scala.math._
+object multifunc {
+  def main(args:Array[String])=
+  {
+    
+    println("Enter Your choice to perform the action:")
+    println("1.Palindrome \n2.+ve or -ve \n3.Biggest of 2 numbers \n4.Factorial\n5.Amstrong Number")
+    println("6.Sum of numbers \n7.Prime Numbers\n8.Fibonacii\n9.Math Tables")
+    print("Ener your option:")
+    val opt =readInt();
+    if (opt ==1)
+    {
+    print("Enter String to check PALINDROME:");
+    val pal = readLine()
+    palcheck(pal)
+    }
+    else if (opt ==2)
+    {
+      print("Enter any Number:")
+      
+      val num1 =readInt()
+      postiveBig(opt,num1,0)
+      
+    }
+    else if (opt ==3)
+    {
+      println("Enter two numbers:")
+      print("Enter first number:")
+      val num1 =readFloat()
+      print("Enter second number:")
+      val num2 =readFloat()
+      postiveBig(opt,num1,num2)
+      
+    }
+    else if (opt ==4)
+    {
+      print("Enter Number to get Factorial value:")
+      val fact =readInt()
+      factorialvalue(fact)
+    }
+    
+    else if (opt ==5)
+    {
+      print("Enter Number to get Amstrong or not:")
+      val amst =readInt()
+      armsum(opt,amst)
+    }
+    else if (opt ==6)
+    {
+      print("Enter Number to get Amstrong or not:")
+      val amst =readInt()
+      armsum(opt,amst)
+    }
+    else if (opt ==7)
+    {
+      print("Enter number to get the all prime numbers in range 1 - ?:")
+      val pri =readInt()
+      primeprint(pri)
+    }
+    else if (opt ==8)
+    {
+      print("Enter number to get Fibonacii Sequance:")
+      val fib =readInt()
+      fibseries(fib)
+    }
+    else if (opt ==9)
+    {
+      print("Enter number to get math tables till ?")
+      val math =readInt()
+      mathTable(math)
+      
+    }
+  }
+  def palcheck(pal: String)=
+  {
+    
+   val revstring =pal.reverse
+    if (pal == revstring)
+      print("'" + pal + "' is Palindrome")
+    else
+      print("'" + pal+ "' is not Palindrome")
+      
+      
+  }
+  
+def factorialvalue(num1 : Int)=
+{
+  var a=1
+  for (i <- 1 to num1)
+    a=a*i
+    
+   println( s"$num1 !=$a")
+}
+  
+def postiveBig(opt:Int,num1:Float, num2:Float)
+  {
+    
+    if(opt==2)
+    {
+      if (num1>0)
+      println(num1 +" is Positive")
+      else if (num1<0)
+        println(num1 +" is Negative")
+      else
+        println("Entered Zer000000000000" )
+      
+    }
+    else if(opt==3)
+    {
+      if (num1>num2)
+        println(num1 + " Is greater than " +num2);
+      else if (num2>num1)
+        println(num2 + " Is greater than " +num1);
+      else 
+        println(num1 + " & "  +num2 + " are equal")
+        
+    }
+  }
+  def  armsum(opt:Int,num:Int)
+  {
+    var a=num;
+    var radd=0
+    var len =num.toString().length()
+    var sumnum =0
+     if( a > 0 )
+    {
+      for (i <- 1 to len)
+      {
+        radd=radd + pow(a%10,len).toInt
+        sumnum=sumnum + a%10
+           a =a/10
+         
+      }
+      
+        if(opt==5) 
+        {
+        if (num ==radd)
+        println( s"$num is a Amstrong number" )
+         else
+         println( s"$num is not a Amstrong number")
+        }
+        else if (opt==6)
+        {
+          println(s"Sum of digits in $num=$sumnum")
+        }
+        
+        
+    }     
+    
+    else 
+    {
+        println("Enter +ve  number > 0")
+      }
+   
+  }
+  def primeprint(num:Int)
+  {
+     if (num <2)
+       println("No Prime Numbers")
+       
+       else
+       {
+    for (i <- 2 to num)
+    {
+      var count=0
+      for (c <-2 to i)
+      {
+        if (i%c ==0)
+          count= count + 1
+      }
+      if (count==1)
+      { if(i>2)
+        print("," )
+        print(""+i)
+      }
+    }
+  }
+  }
+  
+  def fibseries(num:Int)
+  {
+    var sum1 =0
+    var sum2=1
+    var sum3=0
+    for (i <- 0 to num)
+    {
+      if (i<2)
+        print(""+i+",")
+        else{
+         sum3 =sum1+sum2
+         sum1=sum2
+         sum2=sum3
+         print(s"$sum3,")
+        }
+    }
+  }
+  
+  def mathTable(num:Int)
+  {
+    print("How many multiplications required:")
+    var mul =readInt()
+    
+    for (i <- 1 to num ;j <- 1 to mul)
+    {
+      if (j==1)
+        println(s"Math Table $i " +
+                  "\n************************* ")
+      println(s"$i * $j  = ${i*j}")
+    
+    }
+      
+  }
+}
