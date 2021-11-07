@@ -1,0 +1,17 @@
+//Print math matrix.
+package com.practice
+import scala.io.StdIn._
+
+object mathMatrix extends App{
+  
+ print("Math Matrix to print (Enter number):")
+ val num =readInt()
+ for(i <- 1 to num; j <- 1 to num)
+ {
+
+   print(s"${i*j} \t")
+      if (j==num)
+    println( "")
+ }
+   
+ 
