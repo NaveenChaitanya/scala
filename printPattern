@@ -1,0 +1,32 @@
+/*
+print following pattern
+.........*
+........**
+.......***
+......****
+.....*****
+....******
+...*******
+..********
+.*********
+**********
+*/
+
+package com.practice
+import scala.io.StdIn._
+object pattern extends App {
+
+  print("Enter any number:")
+  var num = readInt()
+
+  for (i <- 1 to num; j <- 1 until num + 1) {
+    if (j == 1)
+      println("")
+    if (i + j > num)
+      print("*")
+    else
+      print(".")
+
+  }
+}
+
