@@ -1,0 +1,37 @@
+package com.excercise
+import scala.io.StdIn._
+
+object pascalTriangle extends App {
+  print("Enter number(levles) to print PASCAL TRIANGLE:")
+  val pascal = readInt()
+  for (i <- 0 to pascal) {
+    for (j <- 0 to pascal - i) {
+      print(" ")
+    }
+    for (r <- 0 to i) {
+
+      print(ncr(i, r) + " ")
+    }
+    println(" ")
+  }
+
+  def factorial(num: Int): Int =
+    {
+
+      var fact = 1
+
+      for (i <- 1 to num) {
+        fact = fact * i
+
+      }
+
+      return fact
+    }
+
+  def ncr(n: Int, r: Int): Int = {
+
+    return factorial(n) / (factorial(n - r) * factorial(r))
+
+  }
+
+}
