@@ -1,0 +1,25 @@
+package com.practice
+import scala.io.StdIn._
+
+object methodsLab1 extends App {
+  
+  //
+  print("Enter num1:")
+  val num1=readInt()
+  print("Enter num2:")
+  val num2 =readInt()
+  var x = (x:Int,y:Int) =>x+y;
+  print(s"sum of numbers $num1 , $num2 =${x(num1,num2)}")
+  
+  //sqr
+    var sqr = (x:Int) =>x*x;
+    println(s"\nsqr of $num1 =${sqr(num1)}")
+  ///cube
+    var cub= (x:Int)=>x*x*x
+     println(s"cube of  $num1 =${cub(num1)}")
+  ///+ve or negative
+     var posneg = (x:Int) => if (x>0) "Positive" else "negative" 
+     posneg (num1)
+  
+    
+}
